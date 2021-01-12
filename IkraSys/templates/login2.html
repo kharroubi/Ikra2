@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% load crispy_forms_tags %}
+
+{% block title %}Login | {{ block.super }}{% endblock %}
+
+{% block headline %}<h1>Login to the PyCon Survival Guide</h1>{% endblock %}
+
+{% block content %}
+{% crispy form %}
+{% endblock %}
+</body>
+</html>

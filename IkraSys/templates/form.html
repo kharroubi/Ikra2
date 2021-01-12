@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+ {% block content %}
+
+<div class="container wow fadeInUp mt-10" align="right">
+<div class="col-lg-6 col-md-10">
+
+<h1 style="font-family: 'Traditional Arabic' " > التسجيل في الحلقة : </h1>
+
+<form method="post" novalidate>
+  {% csrf_token %}
+
+  {{ form.non_field_errors }}
+
+  {% for hidden_field in form.hidden_fields %}
+    {{ hidden_field.errors }}
+    {{ hidden_field }}
+  {% endfor %}
+
+  <table class="table-striped" border="4" style="color: #24c2e8">
+    {% for field in form.visible_fields %}
+      <tr>
+        <th>{{ field.label_tag }}</th>
+        <td>
+          {{ field.errors }}
+          {{ field }}
+          {{ field.help_text }}
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+
+  <button type="submit">22التسجيل </button>
+</form>
+
+
+ {% endblock  %}

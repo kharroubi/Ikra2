@@ -1,0 +1,13 @@
+[1mdiff --git a/IkraSys/templates/form.html b/IkraSys/templates/form.html[m
+[1mindex 163e296..3a0e54c 100644[m
+[1m--- a/IkraSys/templates/form.html[m
+[1m+++ b/IkraSys/templates/form.html[m
+[36m@@ -32,7 +32,7 @@[m
+     {% endfor %}[m
+   </table>[m
+ [m
+[31m-  <button type="submit">التسجيل </button>[m
+[32m+[m[32m  <button type="submit">22التسجيل </button>[m
+ </form>[m
+ [m
+ [m
