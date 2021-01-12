@@ -1,7 +1,7 @@
 
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"><img src="{% static 'img/ok.png' %}"></a>
+  <a class="navbar-brand" href="#"><img src="{% static 'img/ok.png' %}" ></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -14,30 +14,28 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'form' %}">التسجيل في الحلقة</a>
       </li>
+         {% if not request.user.is_authenticated and not "/accounts/login/" in request.get_full_path %}
       <li class="nav-item">
+
         <a class="nav-link" href="{% url 'login' %}"> تسجيل الدخول </a>
       </li>
-    </ul>
-       <ul class="nav navbar-nav navbar-right">
+         {% endif %}
+
         {% if request.user.is_authenticated %}
-            <li><a href="{% url 'logout' %}">الخروج</a></li>
+           <li class="nav-item">
+           <a class="nav-link" href="{% url 'form' %}"> رصد الدرجات </a>
+           </li>
 
-            {% endif %}
-       </ul>
+           <li class="nav-item">
+           <a class="nav-link" href="http://127.0.0.1:8000/admin/"> الإدارة</a>
+           </li>
 
-      {% if not request.user.is_authenticated and not "/accounts/login/" in request.get_full_path %}
-           <form class="navbar-form navbar-right" method="post" action="{% url 'login' %}">{% csrf_token %}
-            <ul>
-              <div class="form-group">
-                <input type="text" class="form-control" name="username" placeholder="Username" />
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password" />
-              </div>
-              <button type="submit" class="btn btn-primary">Login</button>
-            </form>
-      </ul>
-          {% endif %}
+           <li class="nav-item">
+           <a class="nav-link" href="{% url 'logout' %}">تسجيل الخروج</a>
+           </li>
+
+        {% endif %}
+
 
 
 

@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.views import generic
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .forms import StudentsForm
+from .forms import StudentsForm,formdegree
 from django.contrib.auth import authenticate, login, logout
 
 
@@ -22,6 +22,18 @@ def form(request):
     return render(request, 'form.html', {'form': form })
 
 
+def form2(request):
+    if request.method == 'POST':
+        form = formdegree(request.POST, request.FILES)
+        if form.is_valid():
+            AttendanceReport = form.save(commit=False)
+            AttendanceReport.save()
+            return redirect('login')
+
+    else:
+        form = formdegree()
+    return render(request, 'formdegree.html', {'form': form })
+
 
 
 def login_user(request):
@@ -37,7 +49,7 @@ def login_user(request):
                 request, 'هناك خطأ في اسم المستخدم أو كلمة المرور.')
 
     return render(request, 'login.html', {
-        'title': 'تسجيل الدخول',
+        'title': 'رصد الدرجة',
     })
 
 

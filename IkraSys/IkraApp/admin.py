@@ -12,7 +12,7 @@ from django.contrib.admin import site
 # register all adminactions
 #actions.add_to_site(site)
 
-admin.site.site_header = 'منصـة جمعية إقرأ'
+admin.site.site_header = 'منصـة الجمعية الخيرية لتحفيظ القرآن الكريم بالخرمة (اقرأ)'
 admin.site.site_title = "الحـلقات القرآنية بالـخـرمــة"
 admin.site.index_title = "إدارة منصة الجمعية بالـخـرمــة"
 
